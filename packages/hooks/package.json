@@ -1,0 +1,53 @@
+{
+   "name": "@turtledev/hooks",
+   "type": "module",
+   "version": "1.4.4",
+   "license": "MIT",
+   "exports": {
+      ".": {
+         "import": "./src/index.ts",
+         "require": "./dist/cjs/index.js",
+         "types": "./dist/types/index.d.ts"
+      }
+   },
+   "main": "dist/cjs/index.js",
+   "module": "dist/esm/index.js",
+   "types": "dist/types/index.d.ts",
+   "source": "src/index.ts",
+   "files": [
+      "dist",
+      "src"
+   ],
+   "scripts": {
+      "build": "rm -rf dist && rollup -c",
+      "dev": "rollup -c -w",
+      "lint": "eslint . --max-warnings 0",
+      "type-check": "tsc --noEmit"
+   },
+   "dependencies": {
+      "@turtledev/api": "workspace:*",
+      "@tanstack/query-sync-storage-persister": "^5.55.3",
+      "@tanstack/react-query": "^5.55.3",
+      "@tanstack/react-query-persist-client": "^5.55.3",
+      "@wagmi/core": "^2.17.2",
+      "react": "^19.1.0",
+      "wagmi": "^2.15.4",
+      "zod": "^3.25.17"
+   },
+   "devDependencies": {
+      "@rollup/plugin-commonjs": "^28.0.3",
+      "@rollup/plugin-node-resolve": "^16.0.1",
+      "@rollup/plugin-terser": "^0.4.4",
+      "@rollup/plugin-typescript": "^12.1.2",
+      "@types/react": "^19.1.5",
+      "rollup": "^4.41.0",
+      "rollup-plugin-tsconfig-paths": "^1.5.2",
+      "typescript": "^5.8.3"
+   },
+   "peerDependencies": {
+      "react": ">=18.0.0"
+   },
+   "publishConfig": {
+      "access": "public"
+   }
+}

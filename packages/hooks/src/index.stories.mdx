@@ -1,0 +1,125 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Packages/Hooks" />
+
+# @turtledev/hooks
+
+React hooks and utilities for building applications with the Turtle ecosystem.
+
+## Overview
+
+This package provides React hooks for all Turtle API endpoints along with utility functions for common operations like formatting and chain management.
+
+## Features
+
+- **React Query Integration** - All hooks use React Query for caching and state management
+- **TypeScript Support** - Full type safety for all hooks and utilities
+- **Automatic Persistence** - Query results are persisted to localStorage
+- **Chain Utilities** - Helper functions for blockchain operations
+- **Number Formatting** - Currency and number formatting utilities
+
+## API Hooks
+
+### Organization Hooks
+
+```typescript
+import { useOrganizations, useOrganizationDeals } from "@turtledev/hooks";
+
+// Get organization data
+const { data, isLoading, error } = useOrganizations();
+
+// Get organization deals
+const { data: deals } = useOrganizationDeals({
+  organizationId: "org-123",
+});
+```
+
+### Authentication Hooks
+
+```typescript
+import { useExists, usePrepareSignup, useSignup } from "@turtledev/hooks";
+
+// Check if user exists
+const { data: userExists } = useExists({ email: "user@example.com" });
+
+// Prepare signup
+const { mutate: prepareSignup } = usePrepareSignup();
+
+// Complete signup
+const { mutate: signup } = useSignup();
+```
+
+### TVL Hooks
+
+```typescript
+import { useProjectTvl } from "@turtledev/hooks";
+
+// Get project TVL data
+const { data: tvl } = useProjectTvl({ projectId: "project-456" });
+```
+
+## Utility Functions
+
+### Chain Management
+
+```typescript
+import { getChainById, getChainByName, SUPPORTED_CHAINS } from "@turtledev/hooks";
+
+// Get chain by ID
+const ethereum = getChainById(1);
+
+// Get chain by name
+const polygon = getChainByName("polygon");
+
+// List all supported chains
+console.log(SUPPORTED_CHAINS);
+```
+
+### Number Formatting
+
+```typescript
+import { formatNumber, formatCurrency, parseNumber } from "@turtledev/hooks";
+
+// Format numbers with commas
+const formatted = formatNumber(1234567.89); // "1,234,567.89"
+
+// Format as currency
+const price = formatCurrency(1000, "USD"); // "$1,000.00"
+
+// Parse formatted numbers
+const parsed = parseNumber("1,234.56"); // 1234.56
+```
+
+## Configuration
+
+The hooks use the global API configuration from `@turtledev/api`:
+
+```typescript
+import { config } from "@turtledev/api";
+import { useConfig } from "@turtledev/hooks";
+
+// Set configuration
+config.set({
+  apiKey: "your-api-key",
+  baseUrl: "https://api.turtle.club",
+});
+
+// Use in components
+function MyComponent() {
+  const currentConfig = useConfig();
+  // ...
+}
+```
+
+## Query Client
+
+The package provides a pre-configured React Query client with persistence:
+
+```typescript
+import { defaultQueryClient } from "@turtledev/hooks";
+
+// Use with QueryClientProvider
+<QueryClientProvider client={defaultQueryClient}>
+  <App />
+</QueryClientProvider>
+```

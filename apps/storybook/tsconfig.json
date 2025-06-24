@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "paths": {
+      "@turtledev/*": ["../../packages/*/src"]
+    }
+  },
+  "include": ["src", ".storybook", "../../packages/*/src/**/*.stories.@(js|jsx|ts|tsx|mdx)"],
+  "exclude": ["node_modules", "storybook-static"]
+}

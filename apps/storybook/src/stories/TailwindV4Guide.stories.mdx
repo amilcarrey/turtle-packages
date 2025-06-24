@@ -1,0 +1,107 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Guides/Tailwind CSS v4" />
+
+# Tailwind CSS v4 Guide
+
+This project uses **Tailwind CSS v4.1**, the latest version of the framework that introduces a new configuration paradigm.
+
+## 🚀 Key differences from v3
+
+### 1. No `tailwind.config.js`
+
+In v4, all configuration is handled directly in CSS using the `@theme` directive:
+
+```css
+@theme {
+  --color-brand: #10b981;
+  --spacing-custom: 5rem;
+}
+```
+
+### 2. Vite Plugin
+
+Tailwind v4.1 requires the `@tailwindcss/vite` plugin to integrate with Vite:
+
+```ts
+// vite.config.ts
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});
+```
+
+### 3. Simplified import
+
+You only need one line to import Tailwind:
+
+```css
+@import "tailwindcss";
+```
+
+### 4. Native CSS variables
+
+Custom values are defined as CSS variables:
+
+```css
+@theme {
+  --color-turtle-primary: #10b981;
+  --font-family-brand: "Inter", system-ui;
+}
+```
+
+## 📝 Usage examples
+
+### Custom colors
+
+```jsx
+<div className="bg-turtle-primary text-white">Using custom color</div>
+```
+
+### Custom spacing
+
+```jsx
+<div className="p-18">
+  {" "}
+  {/* Using --spacing-18 */}
+  Custom spacing
+</div>
+```
+
+### Reusable components
+
+Define components in the `@layer components` layer:
+
+```css
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-turtle-primary text-white rounded-lg;
+  }
+}
+```
+
+## 🎨 Current custom theme
+
+Check `src/index.css` for all available customizations:
+
+- **Colors**: `turtle-primary`, `turtle-secondary`, `turtle-accent`
+- **Spacing**: `spacing-18`, `spacing-22`
+- **Radii**: `radius-4xl`
+- **Fonts**: `font-brand`
+
+## 🔧 Simplified configuration
+
+With Tailwind v4.1:
+
+- ✅ No need for `postcss.config.js`
+- ✅ No need for `autoprefixer`
+- ✅ Only requires `@tailwindcss/vite` plugin
+- ✅ Better performance with Rust compiler
+- ✅ Direct configuration in CSS with `@theme`
+
+## 📚 Resources
+
+- [Tailwind CSS v4 Docs](https://tailwindcss.com/docs)
+- [Blog: What's new in Tailwind CSS v4](https://tailwindcss.com/blog/tailwindcss-v4)
+- [@tailwindcss/vite Plugin](https://github.com/tailwindlabs/tailwindcss/tree/next/packages/@tailwindcss-vite)
