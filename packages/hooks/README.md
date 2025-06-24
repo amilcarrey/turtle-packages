@@ -28,27 +28,11 @@ import { useOrganizations, useConfig } from "@turtledev/hooks";
 
 function MyComponent() {
   const { data: organizations, isLoading } = useOrganizations();
-  const config = useConfig();
   
   if (isLoading) return <div>Loading...</div>;
   
   return <div>{organizations?.name}</div>;
 }
-```
-
-### Utility Functions
-
-```typescript
-import { formatNumber, formatCurrency, getChainById } from "@turtledev/hooks";
-
-// Format numbers
-const formatted = formatNumber(1234567.89); // "1,234,567.89"
-
-// Format currency
-const currency = formatCurrency(1000, "USD"); // "$1,000.00"
-
-// Get chain information
-const chain = getChainById(1); // Ethereum mainnet info
 ```
 
 ## Available Hooks
@@ -64,19 +48,3 @@ const chain = getChainById(1); // Ethereum mainnet info
 
 ### Configuration
 - `useConfig()` - Get current API configuration
-
-## Development
-
-```bash
-# Install dependencies
-bun install
-
-# Development mode
-bun dev
-
-# Build the package
-bun build
-
-# Run type checking
-bun type-check
-``` 

@@ -49,3 +49,8 @@ storybook-static
 .changeset/**/*.md
 !.changeset/config.json
 !.changeset/README.md 
+
+# Compiled types - automatically generated .d.ts files
+types/
+# Keep manual declaration files in src/
+!src/**/*.d.ts
