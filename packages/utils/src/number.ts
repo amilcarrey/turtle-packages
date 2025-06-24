@@ -11,9 +11,8 @@ export function toNumber(value?: string | number, def = 0): number {
     }
 
     return val;
-  }
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  catch (e: unknown) {
+  } catch (e: unknown) {
+    // eslint-disable-next-line unused-imports/no-unused-vars
     return def;
   }
 }

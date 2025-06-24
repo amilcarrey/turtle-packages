@@ -1,0 +1,47 @@
+{
+   "name": "@turtledev/utils",
+   "type": "module",
+   "version": "1.0.0",
+   "license": "MIT",
+   "exports": {
+      ".": {
+         "import": "./src/index.ts"
+      }
+   },
+   "main": "dist/cjs/index.js",
+   "module": "dist/esm/index.js",
+   "types": "types/index.d.ts",
+   "source": "src/index.ts",
+   "files": [
+      "dist",
+      "types"
+   ],
+   "scripts": {
+      "build": "rm -rf dist && rm -rf types && bun run build:code && bun run build:types",
+      "build:code": "rollup -c --bundleConfigAsCjs",
+      "build:types": "tsc -p .",
+      "dev": "concurrently \"bun run dev:code\" \"bun run dev:types\"",
+      "dev:code": "rollup -w -c --bundleConfigAsCjs",
+      "dev:types": "tsc -p . --watch",
+      "lint": "eslint . --max-warnings 0",
+      "type-check": "tsc --noEmit",
+      "prepublishOnly": "bun run build"
+   },
+   "dependencies": {
+      "viem": "^2.30.0"
+   },
+   "devDependencies": {
+      "@rollup/plugin-commonjs": "^28.0.3",
+      "@rollup/plugin-node-resolve": "^16.0.1",
+      "@rollup/plugin-terser": "^0.4.4",
+      "@rollup/plugin-typescript": "^12.1.2",
+      "concurrently": "^9.2.0",
+      "globals": "^16.2.0",
+      "rollup": "^4.41.0",
+      "rollup-plugin-tsconfig-paths": "^1.5.2",
+      "typescript": "^5.8.3"
+   },
+   "publishConfig": {
+      "access": "public"
+   }
+}
