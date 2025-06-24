@@ -15,7 +15,9 @@
       "changeset": "changeset",
       "changeset:version": "changeset version",
       "changeset:publish": "changeset publish",
-      "release": "bun run build && changeset publish"
+      "release": "bun run build && changeset publish",
+      "storybook": "cd apps/storybook && bun run storybook",
+      "build-storybook": "cd apps/storybook && bun run build-storybook"
    },
    "devDependencies": {
       "turbo": "latest",
