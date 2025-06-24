@@ -11,7 +11,8 @@
    },
    "dependencies": {
       "react": "^19.1.0",
-      "react-dom": "^19.1.0"
+      "react-dom": "^19.1.0",
+      "@turtledev/earn-wizzard": "workspace:*"
    },
    "devDependencies": {
       "@storybook/addon-essentials": "^7.6.20",
