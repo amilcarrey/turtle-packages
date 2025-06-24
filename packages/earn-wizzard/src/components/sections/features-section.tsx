@@ -1,6 +1,5 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Label } from "../ui/label";
-import { Switch } from "../ui/switch";
+import { Label, Switch } from "@turtledev/ui";
 
 interface FeaturesSectionProps {
   config: WidgetStyleConfig;

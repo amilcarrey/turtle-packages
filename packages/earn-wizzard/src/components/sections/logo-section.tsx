@@ -1,5 +1,4 @@
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Input, Label } from "@turtledev/ui";
 import type { WidgetStyleConfig } from "../../types/style-config";
 
 interface LogoSectionProps {

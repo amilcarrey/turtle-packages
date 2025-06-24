@@ -1,6 +1,12 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Label } from "../ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Label,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@turtledev/ui";
 
 interface PaddingSectionProps {
   config: WidgetStyleConfig;

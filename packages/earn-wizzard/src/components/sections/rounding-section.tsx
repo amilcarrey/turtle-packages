@@ -1,6 +1,5 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
+import { Button, Label } from "@turtledev/ui";
 
 interface RoundingOptionProps {
   value: string;
@@ -48,20 +47,8 @@ interface RoundingSectionProps {
   updateConfig: (key: keyof WidgetStyleConfig, value: any) => void;
 }
 
-export function RoundingSection({
-  config,
-  updateConfig,
-}: RoundingSectionProps) {
-  const roundingOptions = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-    "full",
-  ];
+export function RoundingSection({ config, updateConfig }: RoundingSectionProps) {
+  const roundingOptions = ["none", "sm", "md", "lg", "xl", "2xl", "3xl", "full"];
 
   return (
     <div className="space-y-3">

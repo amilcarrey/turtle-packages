@@ -1,6 +1,5 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Label } from "../ui/label";
-import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { Label, ToggleGroup, ToggleGroupItem } from "@turtledev/ui";
 
 interface WidgetStyleSectionProps {
   config: WidgetStyleConfig;
@@ -34,4 +33,4 @@ export function WidgetStyleSection({ config, updateConfig }: WidgetStyleSectionP
       </ToggleGroup>
     </div>
   );
-} 
+}

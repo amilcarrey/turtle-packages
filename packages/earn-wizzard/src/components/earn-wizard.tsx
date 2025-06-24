@@ -1,9 +1,7 @@
 import type { WidgetStyleConfig } from "../types/style-config";
 import { ChevronRight, Code, Edit, Settings } from "lucide-react";
 import { type JSX, useEffect, useState } from "react";
-import { Button } from "./ui/button";
-import { ScrollArea } from "./ui/scroll-area";
-import { Separator } from "./ui/separator";
+import { Button, ScrollArea, Separator } from "@turtledev/ui";
 import { defaultWidgetStyleConfig } from "../store/widget-style-config";
 import {
   CodeView,

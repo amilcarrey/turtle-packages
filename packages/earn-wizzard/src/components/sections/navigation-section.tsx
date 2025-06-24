@@ -1,25 +1,19 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Label } from "../ui/label";
-import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { Label, ToggleGroup, ToggleGroupItem } from "@turtledev/ui";
 
 interface NavigationSectionProps {
   config: WidgetStyleConfig;
   updateConfig: (key: keyof WidgetStyleConfig, value: any) => void;
 }
 
-export function NavigationSection({
-  config,
-  updateConfig,
-}: NavigationSectionProps) {
+export function NavigationSection({ config, updateConfig }: NavigationSectionProps) {
   return (
     <div className="space-y-3">
       <Label className="text-sm font-medium">Navigation</Label>
       <ToggleGroup
         type="single"
         value={config.navigation}
-        onValueChange={(value: string) =>
-          value && updateConfig("navigation", value)
-        }
+        onValueChange={(value: string) => value && updateConfig("navigation", value)}
         className="justify-start"
       >
         <ToggleGroupItem

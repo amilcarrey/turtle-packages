@@ -1,6 +1,5 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { Input, Label } from "@turtledev/ui";
 
 interface ColorsSectionProps {
   config: WidgetStyleConfig;

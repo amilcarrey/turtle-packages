@@ -1,25 +1,19 @@
 import type { WidgetStyleConfig } from "../../types/style-config";
-import { Label } from "../ui/label";
-import { ToggleGroup, ToggleGroupItem } from "../ui/toggle-group";
+import { Label, ToggleGroup, ToggleGroupItem } from "@turtledev/ui";
 
 interface WidgetWidthSectionProps {
   config: WidgetStyleConfig;
   updateConfig: (key: keyof WidgetStyleConfig, value: any) => void;
 }
 
-export function WidgetWidthSection({
-  config,
-  updateConfig,
-}: WidgetWidthSectionProps) {
+export function WidgetWidthSection({ config, updateConfig }: WidgetWidthSectionProps) {
   return (
     <div className="space-y-3">
       <Label className="text-sm font-medium">Widget Width</Label>
       <ToggleGroup
         type="single"
         value={config.widget_width}
-        onValueChange={(value: string) =>
-          value && updateConfig("widget_width", value)
-        }
+        onValueChange={(value: string) => value && updateConfig("widget_width", value)}
         className="justify-start"
       >
         <ToggleGroupItem

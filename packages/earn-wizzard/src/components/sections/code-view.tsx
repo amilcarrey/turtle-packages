@@ -1,7 +1,6 @@
 import { Check, Code, Copy } from "lucide-react";
 import { useState } from "react";
-import { Button } from "../ui/button";
-import { ScrollArea } from "../ui/scroll-area";
+import { Button, ScrollArea } from "@turtledev/ui";
 
 interface CodeViewProps {
   jsonOutput: string;
@@ -24,12 +23,7 @@ export function CodeView({ jsonOutput }: CodeViewProps) {
           <Code className="w-5 h-5" />
           Generated Configuration
         </h3>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={copyToClipboard}
-          className="gap-2"
-        >
+        <Button variant="secondary" size="sm" onClick={copyToClipboard} className="gap-2">
           {copied ? (
             <>
               <Check className="w-4 h-4" />
