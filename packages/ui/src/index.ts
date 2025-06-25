@@ -1,3 +1,6 @@
+// Import styles
+import "./styles/globals.css";
+
 // Re-export components
 export * from "./components/ui";
 

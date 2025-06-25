@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 import tailwindcss from "@tailwindcss/vite";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [tailwindcss()],
@@ -26,10 +29,14 @@ export default defineConfig({
         "@radix-ui/react-separator",
         "@radix-ui/react-slot",
         "@radix-ui/react-switch",
+        "@radix-ui/react-toggle",
         "@radix-ui/react-toggle-group",
+        "@radix-ui/react-tooltip",
         "class-variance-authority",
         "clsx",
         "lucide-react",
+        "next-themes",
+        "sonner",
         "tailwind-merge",
       ],
       output: {

@@ -5,4 +5,7 @@ export * from "./scroll-area";
 export * from "./select";
 export * from "./separator";
 export * from "./switch";
+export * from "./sonner";
 export * from "./toggle-group";
+export * from "./toggle";
+export * from "./tooltip";

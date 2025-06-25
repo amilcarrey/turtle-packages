@@ -1,66 +1,108 @@
+@import "tw-animate-css";
 @import "tailwindcss";
 
-@theme {
-  --color-background: 0 0% 100%;
-  --color-foreground: 222.2 84% 4.9%;
-  --color-card: 0 0% 100%;
-  --color-card-foreground: 222.2 84% 4.9%;
-  --color-popover: 0 0% 100%;
-  --color-popover-foreground: 222.2 84% 4.9%;
-  --color-primary: 221.2 83.2% 53.3%;
-  --color-primary-foreground: 210 40% 98%;
-  --color-secondary: 210 40% 96%;
-  --color-secondary-foreground: 222.2 84% 4.9%;
-  --color-muted: 210 40% 96%;
-  --color-muted-foreground: 215.4 16.3% 46.9%;
-  --color-accent: 210 40% 96%;
-  --color-accent-foreground: 222.2 84% 4.9%;
-  --color-destructive: 0 84.2% 60.2%;
-  --color-destructive-foreground: 210 40% 98%;
-  --color-border: 214.3 31.8% 91.4%;
-  --color-input: 214.3 31.8% 91.4%;
-  --color-ring: 221.2 83.2% 53.3%;
-  --color-chart-1: 12 76% 61%;
-  --color-chart-2: 173 58% 39%;
-  --color-chart-3: 197 37% 24%;
-  --color-chart-4: 43 74% 66%;
-  --color-chart-5: 27 87% 67%;
-  --radius: 0.5rem;
-}
-
-@theme dark {
-  --color-background: 222.2 84% 4.9%;
-  --color-foreground: 210 40% 98%;
-  --color-card: 222.2 84% 4.9%;
-  --color-card-foreground: 210 40% 98%;
-  --color-popover: 222.2 84% 4.9%;
-  --color-popover-foreground: 210 40% 98%;
-  --color-primary: 217.2 91.2% 59.8%;
-  --color-primary-foreground: 222.2 84% 4.9%;
-  --color-secondary: 217.2 32.6% 17.5%;
-  --color-secondary-foreground: 210 40% 98%;
-  --color-muted: 217.2 32.6% 17.5%;
-  --color-muted-foreground: 215 20.2% 65.1%;
-  --color-accent: 217.2 32.6% 17.5%;
-  --color-accent-foreground: 210 40% 98%;
-  --color-destructive: 0 62.8% 30.6%;
-  --color-destructive-foreground: 210 40% 98%;
-  --color-border: 217.2 32.6% 17.5%;
-  --color-input: 217.2 32.6% 17.5%;
-  --color-ring: 224.3 76.3% 94.1%;
-  --color-chart-1: 220 70% 50%;
-  --color-chart-2: 160 60% 45%;
-  --color-chart-3: 30 80% 55%;
-  --color-chart-4: 280 65% 60%;
-  --color-chart-5: 340 75% 55%;
-}
-
 @layer base {
-  * {
-    border-color: hsl(var(--color-border));
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --primary-active: 240 5.9% 5%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.75rem;
+
+    --forest-green: 94 100% 30%;
+    --orange-web: 39 97% 54%;
+    --grey: 0 0% 14%;
+    --lighter-grey: 0 0% 23%;
+
+    --neon-green: 117 85% 69%;
+    --dark-green: 131 100% 11%;
+    --ninja-black: 120 2% 8%;
+    --wise-white: 0 0% 98%;
+    --wise-gray: 120 1% 17%;
+    --mint-cream: 109 44% 95%;
+    --turtle-yellow: 54 100% 50%;
+    --turtle-red: 353 100% 51%;
+    --white-transparent: 0, 0%, 98%, 0.02;
   }
-  body {
-    background-color: hsl(var(--color-background));
-    color: hsl(var(--color-foreground));
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-active: 217 91% 65%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.75rem;
+
+    --forest-green: 94 100% 30%;
+    --orange-web: 39 97% 54%;
+    --grey: 0 0% 14%;
+    --lighter-grey: 0 0% 23%;
+
+    --neon-green: 117 85% 69%;
+    --dark-green: 131 100% 11%;
+    --ninja-black: 120 2% 8%;
+    --wise-white: 0 0% 98%;
+    --wise-gray: 120 1% 17%;
+    --mint-cream: 109 44% 95%;
+    --turtle-yellow: 54 100% 50%;
+    --turtle-red: 353 100% 51%;
+    --white-transparent: 0, 0%, 98%, 0.02;
+  }
+
+  @media screen and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    input,
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
   }
 }
