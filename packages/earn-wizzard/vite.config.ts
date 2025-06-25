@@ -1,9 +1,8 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [tailwindcss()],
+  plugins: [],
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
@@ -20,17 +19,10 @@ export default defineConfig({
         "react",
         "react-dom",
         "react/jsx-runtime",
-        "@radix-ui/react-label",
-        "@radix-ui/react-scroll-area",
-        "@radix-ui/react-select",
-        "@radix-ui/react-separator",
-        "@radix-ui/react-slot",
-        "@radix-ui/react-switch",
-        "@radix-ui/react-toggle-group",
-        "class-variance-authority",
-        "clsx",
         "lucide-react",
-        "tailwind-merge",
+        "class-variance-authority",
+        "@turtledev/ui",
+        "jotai",
       ],
       output: {
         globals: {
