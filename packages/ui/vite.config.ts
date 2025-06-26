@@ -1,12 +1,10 @@
 import { defineConfig } from "vite";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [tailwindcss()],
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
@@ -27,7 +25,6 @@ export default defineConfig({
         "@radix-ui/react-scroll-area",
         "@radix-ui/react-select",
         "@radix-ui/react-separator",
-        "@radix-ui/react-slot",
         "@radix-ui/react-switch",
         "@radix-ui/react-toggle",
         "@radix-ui/react-toggle-group",
@@ -37,15 +34,7 @@ export default defineConfig({
         "lucide-react",
         "next-themes",
         "sonner",
-        "tailwind-merge",
       ],
-      output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-          "react/jsx-runtime": "jsx",
-        },
-      },
     },
     outDir: "dist",
     emptyOutDir: true,
