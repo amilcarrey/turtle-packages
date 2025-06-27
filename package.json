@@ -1,35 +1,35 @@
 {
-   "name": "turtle-packages",
-   "version": "0.0.0",
-   "private": true,
-   "workspaces": [
-      "apps/*",
-      "packages/*"
-   ],
-   "scripts": {
-      "build": "turbo run build",
-      "dev": "turbo run dev",
-      "lint": "turbo run lint",
-      "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-      "type-check": "turbo run type-check",
-      "changeset": "changeset",
-      "changeset:version": "changeset version",
-      "changeset:publish": "changeset publish",
-      "release": "bun run build && changeset publish",
-      "storybook": "cd apps/storybook && bun run storybook",
-      "build-storybook": "cd apps/storybook && bun run build-storybook"
-   },
-   "devDependencies": {
-      "turbo": "latest",
-      "typescript": "^5.3.3",
-      "@types/node": "^20.11.5",
-      "prettier": "^3.2.4",
-      "eslint": "^8.56.0",
-      "@eslint/js": "^8.56.0",
-      "@typescript-eslint/eslint-plugin": "^6.19.0",
-      "@typescript-eslint/parser": "^6.19.0",
-      "@changesets/cli": "^2.29.5",
-      "@changesets/config": "^3.1.1"
-   },
-   "packageManager": "bun@1.0.0"
+  "name": "turtle-packages",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "type-check": "turbo run type-check",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "release": "bun run build && changeset publish",
+    "storybook": "cd apps/storybook && bun run storybook",
+    "build-storybook": "cd apps/storybook && bun run build-storybook"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.5",
+    "prettier": "^3.2.4",
+    "eslint": "^8.56.0",
+    "@eslint/js": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "@changesets/cli": "^2.29.5",
+    "@changesets/config": "^3.1.1"
+  },
+  "packageManager": "bun@1.0.0"
 }

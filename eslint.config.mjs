@@ -24,4 +24,4 @@ export default [js.configs.recommended, {
    },
 }, {
    ignores: ["**/dist/**", "**/node_modules/**", "**/.turbo/**", "**/storybook-static/**"],
-}, ...storybook.configs["flat/recommended"]]; 
+}, ...storybook.configs["flat/recommended"], ...storybook.configs["flat/recommended"]]; 
