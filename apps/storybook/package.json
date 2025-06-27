@@ -12,7 +12,6 @@
   "dependencies": {
     "@storybook/addon-links": "9.0.13",
     "@storybook/react-vite": "9.0.13",
-    "@turtledev/earn-wizzard": "workspace:*",
     "@turtledev/ui": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
