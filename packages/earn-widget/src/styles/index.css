@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Turtle Widget Styles - Compatible with monorepo format */
+/* Uses CSS variables set by useWidgetStyles hook */
+
+/* Define turtle component CSS variables as Tailwind utilities */
+@layer utilities {
+  .text-turtle-text {
+    color: var(--turtle-text);
+  }
+  .text-turtle-text\/70 {
+    color: color-mix(in oklab, var(--turtle-text) 70%, transparent);
+  }
+  .bg-turtle-background {
+    background-color: var(--turtle-background);
+  }
+  .bg-turtle-primary {
+    background-color: var(--turtle-primary);
+  }
+  .bg-turtle-secondary {
+    background-color: var(--turtle-secondary);
+  }
+  .bg-turtle-secondary\/5 {
+    background-color: color-mix(in oklab, var(--turtle-secondary) 5%, transparent);
+  }
+  .bg-turtle-secondary\/10 {
+    background-color: color-mix(in oklab, var(--turtle-secondary) 10%, transparent);
+  }
+  .border-turtle-border {
+    border-color: var(--turtle-border);
+  }
+  .border-turtle-primary {
+    border-color: var(--turtle-primary);
+  }
+  .text-turtle-primary {
+    color: var(--turtle-primary);
+  }
+  .ring-turtle-primary {
+    --tw-ring-color: var(--turtle-primary);
+  }
+  .hover\:bg-turtle-primary\/90:hover {
+    background-color: color-mix(in oklab, var(--turtle-primary) 90%, transparent);
+  }
+  .hover\:bg-turtle-secondary\/80:hover {
+    background-color: color-mix(in oklab, var(--turtle-secondary) 80%, transparent);
+  }
+}
