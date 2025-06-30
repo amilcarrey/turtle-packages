@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useAtomValue } from "jotai";
+import { useAccount, useDisconnect, useSendTransaction, useSignMessage, useSwitchChain } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { WidgetRoot } from "./components/widget/widget-root";
 import { MenuBar } from "./components/navigation/menu-bar";
 import { WidgetContent } from "./components/widget/widget-content";
@@ -17,28 +19,39 @@ const tabButtons = [
   { label: "Discover", value: "discover" as TabType },
 ];
 
-// Mock adapter props for development
-const mockAdapterProps: Pick<EarnWidgetProps, 'openConnectionModal' | 'sendTransaction' | 'signMessage' | 'changeNetwork'> = {
-  openConnectionModal: () => {
-    console.log("Opening wallet connection modal...");
-    alert("Connect Wallet clicked!");
-  },
-  signMessage: async (message: string): Promise<string> => {
-    console.log("Signing message:", message);
-    return `0x${"a".repeat(128)}`;
-  },
-  sendTransaction: async (transaction: any): Promise<string> => {
-    console.log("Sending transaction:", transaction);
-    return `0x${"b".repeat(64)}`;
-  },
-  changeNetwork: async (networkId: number): Promise<void> => {
-    console.log(`Switching to network ${networkId}`);
-  },
-};
+function useWalletAdapter(): Pick<EarnWidgetProps, 'openConnectionModal' | 'sendTransaction' | 'signMessage' | 'changeNetwork'> {
+  const { openConnectModal } = useConnectModal();
+  const { sendTransactionAsync } = useSendTransaction();
+  const { signMessageAsync } = useSignMessage();
+  const { switchChainAsync } = useSwitchChain();
+
+  return {
+    openConnectionModal: () => {
+      console.log("Opening RainbowKit connection modal...");
+      openConnectModal?.();
+    },
+    signMessage: async (message: string): Promise<string> => {
+      console.log("Signing message with Wagmi:", message);
+      const signature = await signMessageAsync({ message });
+      return signature;
+    },
+    sendTransaction: async (transaction: any): Promise<string> => {
+      console.log("Sending transaction with Wagmi:", transaction);
+      const hash = await sendTransactionAsync(transaction);
+      return hash;
+    },
+    changeNetwork: async (networkId: number): Promise<void> => {
+      console.log(`Switching to network ${networkId} with Wagmi`);
+      await switchChainAsync({ chainId: networkId });
+    },
+  };
+}
 
 function App(): React.ReactElement {
   const [tab, setTab] = useState<TabType>("earn");
   const showPanel = useAtomValue(showPanelAtom);
+  const { address, chainId } = useAccount();
+  const walletAdapter = useWalletAdapter();
 
   // Configuration matching Figma design
   const config: WidgetStyleConfig = {
@@ -89,10 +102,10 @@ function App(): React.ReactElement {
                 {/* Tab Content */}
                 {tab === "earn" && (
                   <WidgetContent 
-                    user={undefined} 
-                    network={1} 
+                    user={address} 
+                    network={chainId || 1} 
                     config={config}
-                    {...mockAdapterProps}
+                    {...walletAdapter}
                   />
                 )}
                 {tab === "portfolio" && (

@@ -1,8 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Provider as JotaiProvider } from 'jotai';
+import { QueryClient } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { WagmiProvider } from "wagmi";
+import { EthProvider } from "@/utils/rainbowkit/eth-provider";
 import App from "./App";
+import { defaultWagmiConfig } from "@turtledev/wagmi-config";
+import { createIDBPersister } from "./utils/tanstack/persister";
+import "@rainbow-me/rainbowkit/styles.css";
 import "./styles/index.css";
 
 // Configure QueryClient
@@ -26,13 +31,17 @@ if (!rootElement) throw new Error("Root element not found");
 // Create root
 const root = createRoot(rootElement);
 
+const persister = createIDBPersister("turtle");
+
 // Render app
 root.render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <JotaiProvider>
-        <App />
-      </JotaiProvider>
-    </QueryClientProvider>
+    <PersistQueryClientProvider client={queryClient} persistOptions={{ persister }}>
+      <WagmiProvider config={defaultWagmiConfig}>
+        <EthProvider>
+          <App />
+        </EthProvider>
+      </WagmiProvider>
+    </PersistQueryClientProvider>
   </StrictMode>
 );
