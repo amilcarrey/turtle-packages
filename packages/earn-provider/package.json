@@ -1,12 +1,12 @@
 {
-  "name": "@turtledev/wallet-adapters",
+  "name": "@turtledev/earn-provider",
   "version": "0.1.0",
   "description": "Wallet adapters for turtle-dev ecosystem",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/turtledev/packages.git",
-    "directory": "packages/wallet-adapters"
+    "directory": "packages/earn-provider"
   },
   "sideEffects": false,
   "type": "module",
@@ -31,12 +31,15 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "viem": "^2.30.0"
+    "@turtledev/wagmi-config": "workspace:*",
+    "@rainbow-me/rainbowkit": "^2.2.6",
+    "@tanstack/react-query": "^5.0.0",
+    "viem": "^2.30.0",
+    "wagmi": "^2.15.6"
   },
   "peerDependencies": {
     "react": "^18.0.0",
-    "wagmi": "^2.0.0",
-    "@rainbow-me/rainbowkit": "^2.0.0"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
