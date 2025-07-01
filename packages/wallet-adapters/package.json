@@ -1,0 +1,49 @@
+{
+  "name": "@turtledev/wallet-adapters",
+  "version": "0.1.0",
+  "description": "Wallet adapters for turtle-dev ecosystem",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/turtledev/packages.git",
+    "directory": "packages/wallet-adapters"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./wagmi": {
+      "types": "./dist/wagmi.d.ts",
+      "import": "./dist/wagmi.js",
+      "require": "./dist/wagmi.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "viem": "^2.30.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "wagmi": "^2.0.0",
+    "@rainbow-me/rainbowkit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0",
+    "tsup": "^8.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
