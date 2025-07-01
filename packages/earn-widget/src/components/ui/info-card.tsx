@@ -15,9 +15,9 @@ export function InfoCard({
   className 
 }: InfoCardProps) {
   const colorClasses = {
-    primary: "text-turtle-primary",
-    secondary: "text-turtle-secondary", 
-    accent: "text-turtle-accent",
+    primary: "text-[var(--color-text-primary)]",
+    secondary: "text-[var(--color-text-muted)]", 
+    accent: "text-[var(--color-text-accent)]",
   };
 
   return (

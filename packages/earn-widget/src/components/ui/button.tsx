@@ -3,15 +3,15 @@ import { forwardRef } from "react";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-[var(--turtle-border-radius)] text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-turtle-primary disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--color-text-accent)] disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-turtle-primary text-white hover:bg-turtle-primary/90",
-        secondary: "bg-turtle-secondary text-turtle-text hover:bg-turtle-secondary/80",
-        outline: "border border-turtle-border bg-transparent hover:bg-turtle-secondary/5",
-        ghost: "hover:bg-turtle-secondary/10",
-        link: "text-turtle-primary underline-offset-4 hover:underline",
+        default: "bg-[var(--color-text-accent)] text-[var(--color-text-primary)] hover:bg-[var(--color-text-accent)]/90",
+        secondary: "bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-secondary)]/80",
+        outline: "border border-[var(--color-text-primary)]/20 bg-transparent hover:bg-[var(--color-surface-secondary)]/20",
+        ghost: "hover:bg-[var(--color-surface-secondary)]/20",
+        link: "text-[var(--color-text-accent)] underline-offset-4 hover:underline",
       },
       size: {
         default: "h-10 px-4 py-2",

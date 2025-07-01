@@ -65,23 +65,36 @@ export function useWidgetStyles() {
     };
   }
   
-  // Generate CSS custom properties for both monorepo and component formats
+  // Generate CSS custom properties for monorepo, turtle, and shadcn formats
   const cssVars = {
-    // Monorepo format variables (for existing components like menu-bar)
+    // Monorepo format variables (for backward compatibility)
     "--color-surface-primary": monorepoStyles.color_surface_primary,
     "--color-surface-secondary": monorepoStyles.color_surface_secondary,
     "--color-text-primary": monorepoStyles.color_text_primary,
     "--color-text-muted": monorepoStyles.color_text_muted,
     "--color-text-accent": monorepoStyles.color_text_accent,
     
-    // Component format variables (for UI components)
-    "--turtle-background": monorepoStyles.color_surface_primary,
-    "--turtle-secondary": monorepoStyles.color_surface_secondary,
-    "--turtle-primary": monorepoStyles.color_text_accent,
-    "--turtle-text": monorepoStyles.color_text_primary,
-    "--turtle-text-muted": monorepoStyles.color_text_muted,
-    "--turtle-border": `${monorepoStyles.color_text_primary}1a`, // 10% opacity
-    "--turtle-border-radius": "12px",
+    // Shadcn/ui variables (for shadcn components)
+    "--background": monorepoStyles.color_surface_primary,
+    "--foreground": monorepoStyles.color_text_primary,
+    "--card": monorepoStyles.color_surface_primary,
+    "--card-foreground": monorepoStyles.color_text_primary,
+    "--primary": monorepoStyles.color_text_accent,
+    "--primary-foreground": monorepoStyles.color_text_primary,
+    "--secondary": monorepoStyles.color_surface_secondary,
+    "--secondary-foreground": monorepoStyles.color_text_primary,
+    "--muted": monorepoStyles.color_surface_secondary,
+    "--muted-foreground": monorepoStyles.color_text_muted,
+    "--accent": monorepoStyles.color_text_accent,
+    "--accent-foreground": monorepoStyles.color_text_primary,
+    "--border": `color-mix(in oklch, ${monorepoStyles.color_text_primary} 15%, transparent)`,
+    "--input": monorepoStyles.color_surface_secondary,
+    "--ring": monorepoStyles.color_text_accent,
+    "--radius": "0.75rem",
+    
+    // Destructive colors (defaults)
+    "--destructive": "oklch(0.577 0.245 27.325)",
+    "--destructive-foreground": "oklch(0.985 0 0)",
   };
   
   // Add theme-specific variants

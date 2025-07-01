@@ -1,35 +1,46 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Provider as JotaiProvider } from 'jotai';
 import type { EarnWidgetProps } from '../../types';
 import { WidgetRoot } from './widget-root';
 import { WidgetContent } from './widget-content';
 
-// Create a default QueryClient for the widget
-const createQueryClient = () =>
-  new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: 3,
-        retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
-        staleTime: 5 * 60 * 1000, // 5 minutes
-        gcTime: 10 * 60 * 1000, // 10 minutes
-      },
-    },
-  });
-
+/**
+ * EarnWidget - Core widget component
+ * 
+ * This is the main widget component that consumers should use.
+ * It requires the consumer to provide:
+ * - QueryClient provider (for data fetching)
+ * - Wallet adapters (for blockchain interactions)
+ * 
+ * @example
+ * ```tsx
+ * import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+ * import { EarnWidget } from '@turtledev/earn-widget';
+ * 
+ * const queryClient = new QueryClient();
+ * 
+ * function App() {
+ *   return (
+ *     <QueryClientProvider client={queryClient}>
+ *         <EarnWidget
+ *           user={address}
+ *           network={chainId}
+ *           config={widgetConfig}
+ *           openConnectionModal={openConnectModal}
+ *           signMessage={signMessage}
+ *           sendTransaction={sendTransaction}
+ *           changeNetwork={switchChain}
+ *         />
+ *     </QueryClientProvider>
+ *   );
+ * }
+ * ```
+ */
 export function EarnWidget<TNetwork extends number = number>(
   props: EarnWidgetProps<TNetwork>
 ): React.ReactElement {
-  const [queryClient] = React.useState(() => createQueryClient());
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <JotaiProvider>
-        <WidgetRoot config={props.config}>
-          <WidgetContent {...props} />
-        </WidgetRoot>
-      </JotaiProvider>
-    </QueryClientProvider>
+    <WidgetRoot config={props.config}>
+      <WidgetContent {...props} />
+    </WidgetRoot>
   );
 }

@@ -9,6 +9,7 @@ export default defineConfig({
     'react-dom',
     'tailwindcss',
     '@tanstack/react-query',
+    'jotai',
     'viem',
     'wagmi',
     '@rainbow-me/rainbowkit'

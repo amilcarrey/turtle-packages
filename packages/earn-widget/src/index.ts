@@ -1,6 +1,9 @@
 // Main widget component
 export { EarnWidget } from './components/widget/earn-widget';
 
+// Optional providers for convenience
+export { DefaultProviders } from './providers/default-providers';
+
 // Types
 export type { 
   WidgetStyleConfig,

@@ -87,18 +87,18 @@ export function MenuBar<T extends string>({
       </div>
       <div className={cn("block w-full sm:hidden", selectClassName)}>
         <Select value={selectedValue} onValueChange={onValueChange}>
-          <SelectTrigger className="h-[38px] gap-2 rounded-full border border-white/10 bg-black p-0 pr-2.5 text-white/50 shadow-[0px_0px_40px_0px_rgba(0,0,0,0.40)] focus:ring-0">
-            <div className="flex h-full w-[calc(100%-40px)] flex-1 items-center justify-center rounded-full border border-white/10 bg-white/10 capitalize text-green-400">
+          <SelectTrigger className="h-[38px] gap-2 rounded-full border border-white/10 bg-[var(--color-surface-primary)] p-0 pr-2.5 text-[var(--color-text-muted)] shadow-[0px_0px_40px_0px_rgba(0,0,0,0.40)] focus:ring-0">
+            <div className="flex h-full w-[calc(100%-40px)] flex-1 items-center justify-center rounded-full border border-white/10 bg-[var(--color-surface-secondary)] capitalize text-[var(--color-text-accent)]">
               <SelectValue>{labelFromSelectedValue}</SelectValue>
             </div>
           </SelectTrigger>
-          <SelectContent className="z-[9999] min-w-[200px] rounded-[19px] bg-black px-0.5 py-1 shadow-[0px_0px_40px_0px_rgba(0,0,0,0.40)]">
+          <SelectContent className="z-[9999] min-w-[200px] rounded-[19px] bg-[var(--color-surface-primary)] px-0.5 py-1 shadow-[0px_0px_40px_0px_rgba(0,0,0,0.40)]">
             {items.map(({ label, value }, index) => (
               <SelectItem
                 key={label}
                 value={value}
                 className={cn(
-                  "flex items-center justify-center gap-2 rounded-full border border-white/10 bg-black p-2 hover:bg-white/10",
+                  "flex items-center justify-center gap-2 rounded-full border border-white/10 bg-[var(--color-surface-primary)] p-2 hover:bg-[var(--color-surface-secondary)]",
                   index !== 0 && "mt-2",
                 )}
               >

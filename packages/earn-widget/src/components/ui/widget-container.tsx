@@ -6,16 +6,16 @@ import { cn } from "../../lib/utils";
 const containerVariants = cva("transition-all duration-200", {
   variants: {
     variant: {
-      default: "bg-turtle-background border-turtle-border",
-      card: "bg-turtle-background border-turtle-border",
-      primary: "bg-turtle-primary text-white",
-      secondary: "bg-turtle-secondary text-turtle-text",
+      default: "bg-[var(--color-surface-primary)] border-[var(--color-text-primary)]/10",
+      card: "bg-[var(--color-surface-primary)] border-[var(--color-text-primary)]/10",
+      primary: "bg-[var(--color-text-accent)] text-[var(--color-text-primary)]",
+      secondary: "bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)]",
     },
     shadow: {
       none: "",
       small: "shadow-sm",
       medium: "shadow-md",
-      large: "shadow-lg shadow-turtle-border/10",
+      large: "shadow-lg shadow-[var(--color-text-primary)]/10",
     },
     padding: {
       none: "p-0",
@@ -25,7 +25,7 @@ const containerVariants = cva("transition-all duration-200", {
     },
     rounded: {
       none: "rounded-none",
-      default: "rounded-[var(--turtle-border-radius)]",
+      default: "rounded-xl",
       sm: "rounded-sm",
       md: "rounded-md",
       lg: "rounded-lg",
@@ -34,8 +34,8 @@ const containerVariants = cva("transition-all duration-200", {
     },
     border: {
       none: "",
-      default: "border border-turtle-border",
-      primary: "border border-turtle-primary",
+      default: "border border-[var(--color-text-primary)]/10",
+      primary: "border border-[var(--color-text-accent)]",
     },
     width: {
       default: "w-auto",
@@ -43,8 +43,8 @@ const containerVariants = cva("transition-all duration-200", {
     },
     hover: {
       none: "",
-      subtle: "hover:bg-turtle-secondary/5 cursor-pointer",
-      card: "hover:bg-turtle-secondary/10 hover:shadow-lg cursor-pointer",
+      subtle: "hover:bg-[var(--color-surface-secondary)]/50 cursor-pointer",
+      card: "hover:bg-[var(--color-surface-secondary)]/30 hover:shadow-lg cursor-pointer",
     }
   },
   defaultVariants: {
