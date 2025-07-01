@@ -1,27 +1,18 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['cjs', 'esm'],
+  entry: ["src/index.ts"],
+  format: ["cjs", "esm"],
   dts: true,
-  external: [
-    'react',
-    'react-dom',
-    'tailwindcss',
-    '@tanstack/react-query',
-    'jotai',
-    'viem',
-    'wagmi',
-    '@rainbow-me/rainbowkit'
-  ],
+  external: ["react", "react-dom"],
   minify: true,
   clean: true,
   sourcemap: true,
   treeshake: true,
   splitting: false,
   // Keep React JSX transform for better compatibility
-  jsx: 'automatic',
-  target: 'es2020',
+  jsx: "automatic",
+  target: "es2020",
   // Ensure proper module resolution
-  platform: 'neutral',
-})
+  platform: "neutral",
+});
