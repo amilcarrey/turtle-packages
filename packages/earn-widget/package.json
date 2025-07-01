@@ -12,7 +12,7 @@
    "type": "module",
    "exports": {
       ".": {
-         "types": "./types/index.d.ts",
+         "types": "./dist/index.d.ts",
          "import": "./dist/index.js",
          "require": "./dist/index.cjs"
       },
@@ -20,10 +20,11 @@
    },
    "main": "./dist/index.cjs",
    "module": "./dist/index.js",
-   "types": "./types/index.d.ts",
+   "types": "./dist/index.d.ts",
    "scripts": {
-      "dev": "vite",
-      "build": "NODE_ENV=production vite build --mode production",
+      "build": "tsup && bun run build:css",
+      "build:css": "bunx @tailwindcss/cli -i ./src/styles/index.css -o ./dist/styles-temp.css && postcss ./dist/styles-temp.css --output ./dist/styles.css && rm ./dist/styles-temp.css",
+      "dev": "tsup --watch",
       "preview": "vite preview",
       "type-check": "tsc --noEmit"
    },
@@ -58,12 +59,17 @@
       "@rainbow-me/rainbowkit": "^2.2.6"
    },
    "devDependencies": {
+      "@tailwindcss/cli": "^4.1.11",
+      "@tailwindcss/vite": "^4.1.11",
       "@types/react": "^18.0.0",
       "@types/react-dom": "^18.0.0",
-      "@tailwindcss/vite": "^4.1.11",
       "@vitejs/plugin-react": "^4.4.1",
+      "postcss": "^8.5.6",
+      "postcss-cli": "^11.0.1",
+      "postcss-prefixwrap": "^1.55.0",
       "react": "^18.0.0",
       "react-dom": "^18.0.0",
+      "tsup": "^8.5.0",
       "typescript": "^5.0.0",
       "vite": "^5.0.0"
    },
